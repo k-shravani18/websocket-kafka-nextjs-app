@@ -1,10 +1,8 @@
+//\app \src\server.ts
 
- //\app \src\server.ts
-
- import { Server } from "socket.io";
 import { createServer } from "http";
-import ConsumerFactory from "./kafka/ConsumerFactory";
-import ProducerFactory from "./kafka/ProducerFactory";
+import { Server } from "socket.io";
+import { KafkaUtils } from "@/utils/KafkaUtils";
 
 export default async function startServer() {
   // Initialize WebSocket server
@@ -30,28 +28,11 @@ export default async function startServer() {
   });
 
   // Initialize Kafka producer
-  // try {
-  //   const producer = new ProducerFactory();
-  //   await producer.start();
-  //   console.log("Producer started successfully");
+  // const producer = KafkaUtils.getProducerInstance();
+  // await producer.start();
 
-  //   // Send messages using the producer
-  //   const messages = [
-  //     { value: "message1" },
-  //     { value: "message2" },
-  //     { value: "message3" },
-  //   ];
-  //   const result = await producer.sendBatch(messages);
-  //   console.log("Message sent to Kafka:", result);
-  // } catch (error) {
-  //   console.error("Failed to start Kafka producer:", error);
-  //   return; // Exit function if producer fails to start
-  // }
-
-  // Initialize Kafka consumer and message processor
-  // const messageProcessor: ExampleMessageProcessor = { a: "" };
-  const consumer = new ConsumerFactory( io);
-
+  // Initialize Kafka consumer
+  const consumer = KafkaUtils.getConsumerInstance(io);
   // Start Kafka consumer
   try {
     await consumer.startConsumer();
@@ -61,46 +42,3 @@ export default async function startServer() {
     return; // Exit function if consumer fails to start
   }
 }
-/*
-// src/app/server.ts
-import { Server } from "socket.io";
-import { createServer } from "http";
-import { KafkaUtils } from "../utils/KafkaUtils";
-
-export default async function startServer() {
-  // Initialize WebSocket server
-  const httpServer = createServer();
-  const io = new Server(httpServer, {
-    cors: {
-      origin: "http://localhost:3000", // Allow connections from this origin
-      methods: ["GET", "POST"],
-    },
-  });
-
-  // Start WebSocket server
-  httpServer.listen(3001, () => {
-    console.log("WebSocket server listening on port 3001");
-  });
-
-  // Listen for client connections
-  await new Promise<void>((resolve) => {
-    io.on("connection", (socket) => {
-      console.log("Client connected");
-      resolve(); // Resolve the promise when client connects
-    });
-  });
-
-  // Initialize Kafka producer and consumer
-  const producer = KafkaUtils.getProducer();
-  const consumer = KafkaUtils.getConsumer(io);
-
-  // Start Kafka consumer
-  try {
-    await consumer.startConsumer();
-    console.log("Consumer started successfully");
-  } catch (error) {
-    console.error("Failed to start Kafka consumer:", error);
-    return; // Exit function if consumer fails to start
-  }
-}
-*/

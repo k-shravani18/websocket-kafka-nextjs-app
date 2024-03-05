@@ -4,10 +4,10 @@
 
 The objective of this project is to create a web application that demonstrates real-time message display without the need for page refresh. We aim to achieve this by integrating Kafka for message processing and WebSocket.io for real-time communication between the server and client-side web page.
 
-####Key Features:
+#### Key Features:
 **Real-Time Message Display:** Messages produced by Kafka integration will be dynamically rendered on the webpage in real-time, providing users with instant updates without manual page refresh.
 **Interactive Message Input:** A form component will be developed to allow users to input messages. Upon submission, these messages will be produced to a Kafka topic and subsequently displayed on the webpage alongside previously received messages.
-###Goals
+### Goals:
 **Integration of Kafka with Next.js:** Implement Kafka integration within the Next.js application to enable message production and consumption.
 **Real-Time Message Display:** Utilize WebSocket.io to establish real-time communication between the server and client-side web page, ensuring that messages are displayed instantly without page refresh.
 **Dynamic Message Production:** Develop a form component responsible for gathering user input messages, which are then produced to a Kafka topic by the producer component. These messages are then consumed and displayed on the webpage in real-time.
