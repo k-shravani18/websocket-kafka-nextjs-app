@@ -1,4 +1,4 @@
-//kafkaMessages.tsx
+
 //\src\app\components\KafkaMessages.tsx
 "use client";
 import { useEffect, useState } from "react";
