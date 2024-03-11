@@ -1,10 +1,9 @@
-
-//\src\app\components\KafkaMessages.tsx
+// //\src\app\components\KafkaMessages.tsx
 "use client";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-export default function MyComponent() {
+export default function KafkaMessages() {
   console.log("my componet");
 
   const [messages, setMessages] = useState<string[]>([]); // Specify string[] as the type for messages

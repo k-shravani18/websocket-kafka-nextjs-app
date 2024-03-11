@@ -1,4 +1,4 @@
-//src/app/components/messageSender.tsx
+//src/app/components/MessageSenderPage.tsx
 
 import React from "react";
 import { KafkaUtils } from "@/utils/KafkaUtils";
@@ -10,7 +10,7 @@ async function sendMessage(formData: FormData) {
 
   // Check if message is not null before proceeding
   if (typeof message === "string") {
-    const producer = KafkaUtils.getProducerInstance();
+    const producer = KafkaUtils.getProducerInstance("demo");
 
     try {
       await producer.start();
@@ -35,6 +35,5 @@ const MessageSenderPage = () => {
       </form>
     );
   };
-  
 
 export default MessageSenderPage;

@@ -1,4 +1,4 @@
-//\src\app\kafka\ProducerFactory.ts
+//\WS-APP\ProducerFactory.ts
 import {
   Kafka,
   Message,
@@ -9,7 +9,9 @@ import {
 
 export default class ProducerFactory {
   private producer: Producer;
-  constructor() {
+  private topic: string;
+  constructor(topic: string) {
+    this.topic = topic;
     this.producer = this.createProducer();
   }
   public async start(): Promise<void> {
@@ -33,7 +35,7 @@ export default class ProducerFactory {
       };
     });
     const topicMessages: TopicMessages = {
-      topic: "demo",
+      topic: this.topic,
       messages: kafkaMessages,
     };
     const batch: ProducerBatch = {

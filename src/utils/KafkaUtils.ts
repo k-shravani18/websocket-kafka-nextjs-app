@@ -1,23 +1,23 @@
 // kafkaUtils.ts
-import ProducerFactory from "@/app/kafka/ProducerFactory";
-import ConsumerFactory from "@/app/kafka/ConsumerFactory";
+import ProducerFactory from "../../kafka/ProducerFactory";
+import ConsumerFactory from "../../kafka/ConsumerFactory";
 import { Server } from "socket.io";
 
 export class KafkaUtils {
-  private static producerInstance: ProducerFactory | null = null;
-  private static consumerInstance: ConsumerFactory | null = null;
-
-  public static getProducerInstance(): ProducerFactory {
-    if (!this.producerInstance) {
-      this.producerInstance = new ProducerFactory();
+    private static producerInstances: { [topic: string]: ProducerFactory } = {};
+    private static consumerInstances: { [topic: string]: ConsumerFactory } = {};
+  
+    public static getProducerInstance(topic: string): ProducerFactory {
+      if (!this.producerInstances[topic]) {
+        this.producerInstances[topic] = new ProducerFactory(topic);
+      }
+      return this.producerInstances[topic];
     }
-    return this.producerInstance;
+  
+    public static getConsumerInstance(topic: string, io: Server): ConsumerFactory {
+      if (!this.consumerInstances[topic]) {
+        this.consumerInstances[topic] = new ConsumerFactory(topic, io);
+      }
+      return this.consumerInstances[topic];
+    }
   }
-
-  public static getConsumerInstance(io: Server): ConsumerFactory {
-    if (!this.consumerInstance) {
-      this.consumerInstance = new ConsumerFactory(io);
-    }
-    return this.consumerInstance;
-  } 
-}

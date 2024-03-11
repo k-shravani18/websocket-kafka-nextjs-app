@@ -1,13 +1,16 @@
-# Real-Time Message Display(WS) with Kafka Integration and Next.js 14.1.0
+# Real-Time Message Display(WS) with Kafka Integration and Next.js 14.1.3
 
 ### 1. Overview
 
 The objective of this project is to create a web application that demonstrates real-time message display without the need for page refresh. We aim to achieve this by integrating Kafka for message processing and WebSocket.io for real-time communication between the server and client-side web page.
 
 #### Key Features:
+
 **Real-Time Message Display:** Messages produced by Kafka integration will be dynamically rendered on the webpage in real-time, providing users with instant updates without manual page refresh.
 **Interactive Message Input:** A form component will be developed to allow users to input messages. Upon submission, these messages will be produced to a Kafka topic and subsequently displayed on the webpage alongside previously received messages.
+
 ### Goals:
+
 **Integration of Kafka with Next.js:** Implement Kafka integration within the Next.js application to enable message production and consumption.
 **Real-Time Message Display:** Utilize WebSocket.io to establish real-time communication between the server and client-side web page, ensuring that messages are displayed instantly without page refresh.
 **Dynamic Message Production:** Develop a form component responsible for gathering user input messages, which are then produced to a Kafka topic by the producer component. These messages are then consumed and displayed on the webpage in real-time.
@@ -16,7 +19,7 @@ The objective of this project is to create a web application that demonstrates r
 
 #### Installation and Dependency Management
 
-To set up a Next.js project, you can use the following command:ommands:
+To set up a Next.js project, you can use the following command:
 
 npx create-next-app@latest
 
@@ -31,7 +34,12 @@ During the installation process, you'll be prompted with several options:
 - Import Alias: Choose whether to customize the default import alias.
 
 **Dependencies:**
-To integrate Kafka and Websocket functionality into Next.js project, here we need to install the following dependencies: - kafkajs - cors - socket.io - socket.io-client
+To integrate Kafka and Websocket functionality into Next.js project, here we need to install the following dependencies:
+
+- kafkajs
+- cors
+- socket.io
+- socket.io-client
 
 **kafkajs :**
 KafkaJS is a client library for Apache Kafka written in JavaScript. It allows your application to interact with Apache Kafka clusters, enabling real-time data processing and streaming.
