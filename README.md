@@ -19,18 +19,22 @@ The objective of this project is to create a web application that demonstrates r
 
 #### Installation and Dependency Management
 
+This Next.js application is built using TypeScript and AppRouter for navigation.
+
 To set up a Next.js project, you can use the following command:
 
+```
 npx create-next-app@latest
+```
 
 During the installation process, you'll be prompted with several options:
 
 - Project Name: Choose a name for your project.
-- TypeScript: Decide whether to use TypeScript.
+- TypeScript: Decide whether to use TypeScript. (YES)
 - ESLint: Choose whether to use ESLint.
 - Tailwind CSS: Decide whether to use Tailwind CSS.
-- src/ Directory: Choose whether to use the src/ directory.
-- App Router: Decide whether to use the App Router.
+- src/ Directory: Choose whether to use the src/ directory.(YES)
+- App Router: Decide whether to use the App Router.(YES)
 - Import Alias: Choose whether to customize the default import alias.
 
 **Dependencies:**
@@ -44,19 +48,27 @@ To integrate Kafka and Websocket functionality into Next.js project, here we nee
 **kafkajs :**
 KafkaJS is a client library for Apache Kafka written in JavaScript. It allows your application to interact with Apache Kafka clusters, enabling real-time data processing and streaming.
 
+```
 npm install kafkajs
+```
 
 **cors :**
 CORS (Cross-Origin Resource Sharing) is a security feature that restricts cross-origin HTTP requests. It's commonly used in web applications to control access to resources from different origins.
 
+```
 npm install cors
+```
 
 **socket.io:**
 Socket.IO is a JavaScript library for real-time web applications. It enables bidirectional communication between clients and servers, making it suitable for implementing Websocket functionality in this project.
 
+```
 npm install socket.io
+```
 
 **socket.io-client :**
 This is the client-side component of Socket.IO. It allows your client-side code to establish and maintain a WebSocket connection with the server.
 
+```
 npm install socket.io-client
+```

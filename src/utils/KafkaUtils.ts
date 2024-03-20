@@ -1,4 +1,4 @@
-// kafkaUtils.ts
+// KafkaUtils.ts
 import ProducerFactory from "../../kafka/ProducerFactory";
 import ConsumerFactory from "../../kafka/ConsumerFactory";
 import { Server } from "socket.io";

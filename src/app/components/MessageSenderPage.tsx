@@ -28,12 +28,12 @@ async function sendMessage(formData: FormData) {
 }
 
 const MessageSenderPage = () => {
-    return (
-      <form action={sendMessage}>
-        <input type="text" name="message" />
-        <button type="submit">Send Message</button>
-      </form>
-    );
-  };
+  return (
+    <form action={sendMessage}>
+      <input type="text" name="message" />
+      <button type="submit">Send Message</button>
+    </form>
+  );
+};
 
 export default MessageSenderPage;

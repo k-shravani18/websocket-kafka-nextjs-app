@@ -9,6 +9,9 @@ import {
 import { Server } from "socket.io";
 
 export default class ConsumerFactory {
+  on(arg0: string, arg1: (assigned: any) => Promise<void>) {
+    throw new Error("Method not implemented.");
+  }
   private kafkaConsumer: Consumer;
   private io: Server;
   private topic: string;
@@ -35,7 +38,7 @@ export default class ConsumerFactory {
 
       await this.kafkaConsumer.subscribe(topic);
       console.log("37 kafkaConsumer.subscribe(topic)");
-
+ 
       await this.kafkaConsumer.run({
         eachMessage: async (messagePayload: EachMessagePayload) => {
           console.log("41 inside kafkaConsumer.run");
@@ -63,11 +66,11 @@ export default class ConsumerFactory {
     });
     return kafka.consumer({ groupId: "consumer-group" });
   }
-  private emitMessages() {
+   private  emitMessages() {
     while (this.messageQueue.length > 0) {
       const message = this.messageQueue.shift();
       if (message && this.io) {
-        this.io.emit("kafka-message", message);
+        this.io.emit("kafka-message-"+this.topic, message);
       }
     }
   }
