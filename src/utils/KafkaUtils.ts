@@ -14,9 +14,9 @@ export class KafkaUtils {
       return this.producerInstances[topic];
     }
   
-    public static getConsumerInstance(topic: string, io: Server): ConsumerFactory {
+    public static getConsumerInstance(topic: string): ConsumerFactory {
       if (!this.consumerInstances[topic]) {
-        this.consumerInstances[topic] = new ConsumerFactory(topic, io);
+        this.consumerInstances[topic] = new ConsumerFactory(topic);
       }
       return this.consumerInstances[topic];
     }
