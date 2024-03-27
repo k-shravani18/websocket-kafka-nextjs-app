@@ -1,4 +1,4 @@
-// //\app \src\server.ts
+// //\app \api\server.ts
 
 import { createServer } from "http";
 import { Server } from "socket.io";
